@@ -100,7 +100,6 @@ void URealSenseComponent::SetColorCameraResolution(EColorResolution resolution)
 {
 	// TODO, make it more clever way to install only once
 	if (!bIsColorCameraResolutionSet && resolution != EColorResolution::UNDEFINED) {
-		UE_LOG(LogTemp, Warning, TEXT("SetColorCameraResolution"));
 		globalRealSenseSession->SetColorCameraResolution(resolution);
 	}
 

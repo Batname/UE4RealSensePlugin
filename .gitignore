@@ -14,4 +14,6 @@ Content/*.obj
 
 Plugins/RealSensePlugin/Binaries/
 Plugins/RealSensePlugin/Intermediate/
+Plugins/DimencoHMD/
+
 *.db
