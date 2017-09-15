@@ -102,4 +102,17 @@ protected:
 	ARealSenseSessionManager* globalRealSenseSession;
 
 	RealSenseFeature m_feature;
+
+
+	/** Default resolution for color resolution */
+	EColorResolution DefaultColorResolution = EColorResolution::RES3;
+
+	/** Default resolution for color resolution */
+	EDepthResolution DefaultDepthResolution = EDepthResolution::RES1;
+
+	/** Additional check prevet crash */
+	bool bIsColorCameraResolutionSet = false;
+
+	/** Additional check prevet crash */
+	bool bIsDepthCameraResolutionSet = false;
 };

@@ -5,21 +5,9 @@ using System.Collections.Generic;
 
 public class RealSenseSandboxTarget : TargetRules
 {
-	public RealSenseSandboxTarget(TargetInfo Target)
-	{
+	public RealSenseSandboxTarget(TargetInfo Target) : base(Target)
+    {
 		Type = TargetType.Game;
-	}
-
-	//
-	// TargetRules interface.
-	//
-
-	public override void SetupBinaries(
-		TargetInfo Target,
-		ref List<UEBuildBinaryConfiguration> OutBuildBinaryConfigurations,
-		ref List<string> OutExtraModuleNames
-		)
-	{
-		OutExtraModuleNames.AddRange( new string[] { "RealSenseSandbox" } );
-	}
+        ExtraModuleNames.Add("RealSenseSandbox");
+    }
 }

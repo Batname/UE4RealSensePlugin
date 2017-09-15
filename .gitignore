@@ -9,6 +9,8 @@ Content/*.obj
 *.sln
 *.suo
 *.opensdf
+*.VC.db
+*.opendb
 
 Plugins/RealSensePlugin/Binaries/
 Plugins/RealSensePlugin/Intermediate/

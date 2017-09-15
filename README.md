@@ -11,6 +11,8 @@ RealSense processing takes place on its own dedicated thread. On every tick of t
 
 For more details, you can read this [article](https://software.intel.com/en-us/articles/intel-realsense-sdk-plug-in-for-unreal-engine-4).
 
+RealSense SDK R2 [documentation](https://software.intel.com/sites/landingpage/realsense/camera-sdk/v1.1/documentation/html/index.html?doc_devguide_introduction.html) 
+
 You can also check out these tutorial videos to get started using the RealSense plugin: 
 
 https://youtu.be/mrIiBssoI0w
@@ -28,9 +30,10 @@ https://youtu.be/WMqG3UZkBTE
 * 4th Generation Intel CPU or higher
 
 #### Software Requirements
-* [Intel(R) RealSense(TM) SDK 2016 R1](https://software.intel.com/en-us/intel-realsense-sdk/download)
+* [Intel(R) RealSense(TM) SDK 2016 R2](https://software.intel.com/en-us/intel-realsense-sdk/download)
+* [Drivers](https://software.intel.com/en-us/intel-realsense-sdk/download)
 * The correct DCM for your camera (found also at the previous link)
-* Unreal Engine 4.8 or higher
+* Unreal Engine 4.17.1 min
 * SR300 - Windows 10 only
 * F200 / R200 - Windows 8.1 or 10
 

@@ -258,7 +258,6 @@ void RealSenseImpl::CameraThread()
 
 			// Performs Core SDK and middleware processing and store results 
 			// in background RealSenseDataFrame
-
 			if (bSeg3DEnabled)
 			{
 				PXCImage* segmentedImage = p3DSeg->AcquireSegmentedImage();
@@ -272,6 +271,7 @@ void RealSenseImpl::CameraThread()
 			else if (bCameraStreamingEnabled) {
 				PXCCapture::Sample* sample = senseManager->QuerySample();
 
+				// TODO. potentual issue here, with resolution
 				CopyColorImageToBuffer(sample->color, bgFrame->colorImage, colorResolution.width, colorResolution.height);
 				CopyDepthImageToBuffer(sample->depth, bgFrame->depthImage, depthResolution.width, depthResolution.height);
 			}
@@ -666,7 +666,7 @@ void RealSenseImpl::SetColorCameraResolution(EColorResolution resolution)
 										colorResolution.height, 
 										colorResolution.fps);
 
-	assert(m_status == PXC_STATUS_NO_ERROR);
+	assert(m_status == PXC_STATUS_NO_ERROR && "SetColorCameraResolution Issue");
 
 	const uint8 bytesPerPixel = 4;
 	const uint32 colorImageSize = colorResolution.width * colorResolution.height * bytesPerPixel;
@@ -685,7 +685,7 @@ void RealSenseImpl::SetDepthCameraResolution(EDepthResolution resolution)
 										depthResolution.height, 
 										depthResolution.fps);
 
-	assert(m_status == PXC_STATUS_NO_ERROR);
+	assert(m_status == PXC_STATUS_NO_ERROR && "SetDepthCameraResolution Issue");
 
 	if (m_status == PXC_STATUS_NO_ERROR) {
 		const uint32 depthImageSize = depthResolution.width * depthResolution.height;

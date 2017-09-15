@@ -34,7 +34,7 @@ void UCameraStreamComponent::TickComponent(float DeltaTime, enum ELevelTick Tick
 // to have the same resolution.
 void UCameraStreamComponent::SetColorCameraResolution(EColorResolution resolution) 
 {
-	if (resolution == EColorResolution::UNDEFINED) {
+	if (bIsColorCameraResolutionSet || resolution == EColorResolution::UNDEFINED) {
 		return;
 	}
 
@@ -52,7 +52,7 @@ void UCameraStreamComponent::SetColorCameraResolution(EColorResolution resolutio
 // to have the same resolution.
 void UCameraStreamComponent::SetDepthCameraResolution(EDepthResolution resolution)
 {
-	if (resolution == EDepthResolution::UNDEFINED) {
+	if (bIsDepthCameraResolutionSet || resolution == EDepthResolution::UNDEFINED) {
 		return;
 	}
 
@@ -61,6 +61,6 @@ void UCameraStreamComponent::SetDepthCameraResolution(EDepthResolution resolutio
 	int DepthImageWidth = globalRealSenseSession->GetDepthImageWidth();
 	int DepthImageHeight = globalRealSenseSession->GetDepthImageHeight();
 	DepthTexture = UTexture2D::CreateTransient(DepthImageWidth, DepthImageHeight, 
-											   PF_B8G8R8A8);
+PF_B8G8R8A8);
 	DepthTexture->UpdateResource();
 }

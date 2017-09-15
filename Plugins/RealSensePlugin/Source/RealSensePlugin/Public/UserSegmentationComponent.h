@@ -3,6 +3,8 @@
 #include "RealSenseComponent.h"
 #include "UserSegmentationComponent.generated.h"
 
+// https://software.intel.com/sites/landingpage/realsense/camera-sdk/v1.1/documentation/html/index.html?doc_seg_user_segmentation.html
+// The algorithm works for camera model F200 only.
 // This component provides access to a buffer of RGB camera data and 
 // a buffer of depth camera data, as well as convenient Texture objects
 // for displaying this data.

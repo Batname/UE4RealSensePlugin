@@ -67,6 +67,17 @@ void URealSenseComponent::DisableFeature()
 
 void URealSenseComponent::StartCamera()
 {
+	if (!bIsColorCameraResolutionSet)
+	{
+		SetColorCameraResolution(DefaultColorResolution);
+	}
+
+	if (!bIsDepthCameraResolutionSet)
+	{
+		SetDepthCameraResolution(DefaultDepthResolution);
+	}
+
+
 	globalRealSenseSession->StartCamera();
 }
 
@@ -87,9 +98,14 @@ FStreamResolution URealSenseComponent::GetColorCameraResolution()
 
 void URealSenseComponent::SetColorCameraResolution(EColorResolution resolution)
 {
-	if (resolution != EColorResolution::UNDEFINED) {
+	// TODO, make it more clever way to install only once
+	if (!bIsColorCameraResolutionSet && resolution != EColorResolution::UNDEFINED) {
+		UE_LOG(LogTemp, Warning, TEXT("SetColorCameraResolution"));
 		globalRealSenseSession->SetColorCameraResolution(resolution);
 	}
+
+	// Set resolution is set flag
+	bIsColorCameraResolutionSet = true;
 }
 
 FStreamResolution URealSenseComponent::GetDepthCameraResolution()
@@ -99,9 +115,12 @@ FStreamResolution URealSenseComponent::GetDepthCameraResolution()
 
 void URealSenseComponent::SetDepthCameraResolution(EDepthResolution resolution) 
 {
-	if (resolution != EDepthResolution::UNDEFINED) {
+	if (!bIsDepthCameraResolutionSet && resolution != EDepthResolution::UNDEFINED) {
 		globalRealSenseSession->SetDepthCameraResolution(resolution);
 	}
+
+	// Set resolution is set flag
+	bIsDepthCameraResolutionSet = true;
 }
 
 void URealSenseComponent::Set3DSegCameraResolution(E3DSegResolution resolution)
